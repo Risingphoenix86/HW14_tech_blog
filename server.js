@@ -20,6 +20,14 @@ const sess = {
     })
 };
 
+const hbs = express.create({
+    helpers: {
+        format_date: date => {
+            return 1${date.getMonth() +1}/${date.getDate()}/${date.getFullYear()}`;
+        }
+    }
+});
+
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
